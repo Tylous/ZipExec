@@ -1,4 +1,4 @@
-module ZipExec
+module github.com/Tylous/ZipExec
 
 go 1.17
 
