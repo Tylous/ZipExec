@@ -19,6 +19,10 @@ Then build it
 ```
 go build ZipExec.go
 ``` 
+  
+ or 
+  
+```go get github.com/Tylous/ZipExec  ```
 
 ## Help
 ```
