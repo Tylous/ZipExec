@@ -1,0 +1,4 @@
+github.com/yeka/zip v0.0.0-20180914125537-d046722c6feb h1:OJYP70YMddlmGq//EPLj8Vw2uJXmrA+cGSPhXTDpn2E=
+github.com/yeka/zip v0.0.0-20180914125537-d046722c6feb/go.mod h1:9BnoKCcgJ/+SLhfAXj15352hTOuVmG5Gzo8xNRINfqI=
+golang.org/x/crypto v0.0.0-20210921155107-089bfa567519 h1:7I4JAnoQBe7ZtJcBaYHi5UtiO8tQHbUSXxL+pnGRANg=
+golang.org/x/crypto v0.0.0-20210921155107-089bfa567519/go.mod h1:GvvjBRRGRdwPK5ydBHafDWAxML/pGHZbMvKqRZ5+Abc=
