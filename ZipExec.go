@@ -36,7 +36,7 @@ type FlagOptions struct {
 func options() *FlagOptions {
 	outFile := flag.String("O", "", "Name of output file (e.g. loader.js)")
 	inputFile := flag.String("I", "", "Path to the file containing binary to zip.")
-	sandbox := flag.Bool("sandbox", false, "Enables sandbox evasion using IsDomainedJoined calls.")
+	sandbox := flag.Bool("sandbox", false, "Enables sandbox evasion using IsDomainedJoined.")
 	flag.Parse()
 	return &FlagOptions{outFile: *outFile, inputFile: *inputFile, sandbox: *sandbox}
 }
