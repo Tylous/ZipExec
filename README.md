@@ -1,9 +1,10 @@
 # ZipExec
 ZipExec is a Proof-of-Concept (POC) tool to wrap binary-based tools into a password-protected zip file. This zip file is then base64 encoded into a string that is rebuilt on disk. This encoded string is then loaded into a JScript file that when executed, would rebuild the password-protected zip file on disk and execute it. This is done programmatically by using COM objects to access the GUI-based functions in Windows via the generated JScript loader, executing the loader inside the password-protected zip without having to unzip it first. By password protecting the zip file, it protects the binary from EDRs and disk-based or anti-malware scanning mechanisms.
 
+<p align="center">
+  <img src="Screenshots/demo.gif" alt="animated" />
+</p>
 
-
-<p align="center"><img src="Screenshots/demo.gif" border="2px solid #555" />
 
 
 ## Installation
