@@ -40,7 +40,7 @@ Usage of ./ZipExec:
   -O string
         Name of output file (e.g. loader.js)
   -sandbox
-        Enables sandbox evasion using IsDomainedJoined calls.
+        Enables sandbox evasion using IsDomainedJoined.
 ```
 
 
