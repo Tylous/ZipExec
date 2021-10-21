@@ -1,5 +1,5 @@
-module github.com/Tylous/ZipExec
 
+module github.com/Tylous/ZipExec
 go 1.17
 
 require (

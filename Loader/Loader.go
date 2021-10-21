@@ -9,6 +9,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"path/filepath"
 	"strings"
 	"text/template"
 
@@ -26,7 +27,8 @@ type SandboxJScript struct {
 }
 
 func Zipit(source, target string, password string) {
-	f, _ := os.Open(source)
+	base := filepath.Base(source)
+	f, _ := os.Open(base)
 	reader := bufio.NewReader(f)
 	content, _ := ioutil.ReadAll(reader)
 	contents := []byte(content)
@@ -36,7 +38,7 @@ func Zipit(source, target string, password string) {
 	}
 	zipw := zip.NewWriter(fzip)
 	defer zipw.Close()
-	w, err := zipw.Encrypt(source, password, zip.StandardEncryption)
+	w, err := zipw.Encrypt(base, password, zip.StandardEncryption)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -50,12 +52,13 @@ func Zipit(source, target string, password string) {
 func JScriptLoader_Buff(name string, outFile string, sandbox bool) string {
 	var buffer bytes.Buffer
 	filename := name
-	sourcename := strings.Split(name, ".")
+	base := filepath.Base(name)
+	sourcename := strings.Split(base, ".exe")
 	name = sourcename[0]
 	fmt.Println("[*] Creating Zip File Password")
 	password := Cryptor.VarNumberLength(7, 10)
 	fmt.Println("[+] Password is: " + password + "")
-	zipfile := filename + ".zip"
+	zipfile := name + ".zip"
 	fmt.Println("[*] Zipping Binary")
 	Zipit(filename, zipfile, password)
 	fmt.Println("[*] Encoding Binary")
@@ -135,6 +138,8 @@ func JScriptLoader_Buff(name string, outFile string, sandbox bool) string {
 	} else {
 
 	}
+
+	os.RemoveAll(zipfile)
 	return buffer.String()
 }
 
