@@ -27,8 +27,9 @@ type SandboxJScript struct {
 }
 
 func Zipit(source, target string, password string) {
+	var input string
 	base := filepath.Base(source)
-	f, _ := os.Open(base)
+	f, _ := os.Open(source)
 	reader := bufio.NewReader(f)
 	content, _ := ioutil.ReadAll(reader)
 	contents := []byte(content)
@@ -38,7 +39,12 @@ func Zipit(source, target string, password string) {
 	}
 	zipw := zip.NewWriter(fzip)
 	defer zipw.Close()
-	w, err := zipw.Encrypt(base, password, zip.StandardEncryption)
+	if strings.Contains(source, "\\") || strings.Contains(source, "/") {
+		input = base
+	} else {
+		input = base
+	}
+	w, err := zipw.Encrypt(input, password, zip.StandardEncryption)
 	if err != nil {
 		log.Fatal(err)
 	}
