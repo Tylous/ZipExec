@@ -21,7 +21,9 @@ go build ZipExec.go
   
  or 
   
-```go get github.com/Tylous/ZipExec  ```
+```
+go install github.com/Tylous/ZipExec@latest
+```
 
 ## Help
 ```
