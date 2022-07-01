@@ -24,6 +24,10 @@ var (
 	ErrInvalidPKCS7Padding = errors.New("invalid padding on input")
 )
 
+func init() {
+	crand.Seed(time.Now().UnixNano())
+}
+
 func Pkcs7Pad(b []byte, blocksize int) ([]byte, error) {
 	if blocksize <= 0 {
 		return nil, ErrInvalidBlockSize
@@ -58,7 +62,6 @@ func RandStringBytes(n int) string {
 
 func VarNumberLength(min, max int) string {
 	var r string
-	crand.Seed(time.Now().UnixNano())
 	num := crand.Intn(max-min) + min
 	n := num
 	r = RandStringBytes(n)
@@ -72,7 +75,6 @@ func printHexOutput(input ...[]byte) {
 }
 
 func GenerateNumer(min, max int) int {
-	crand.Seed(time.Now().UnixNano())
 	num := crand.Intn(max-min) + min
 	n := num
 	return n
